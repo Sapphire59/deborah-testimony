@@ -12,3 +12,9 @@ footer {
 
   margin: 90px;
 }
+
+p {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: oblique;
+  font-weight: 500;
+}
