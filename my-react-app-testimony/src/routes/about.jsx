@@ -7,7 +7,7 @@ export const Route = createFileRoute("/about")({
 function About() {
   return (
     <div className="p-2">
-      <p>
+      <p class="text-left">
         Dear Friend, I built this site to share with you my testimony of the
         amazing healing power of my Lord Jesus Christ. I suffered with terrible,
         painful eczema for many years, and I suffered with breathing problems on
