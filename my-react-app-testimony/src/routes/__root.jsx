@@ -4,7 +4,7 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 export const Route = createRootRoute({
   component: () => (
     <>
-      <div className="p-2 flex gap-2 bg-rose-50 border-2 border-black-400 rounded-md">
+      <div className="p-2 flex gap-2 bg-gray-100 border-2 border-rose-300 rounded-md">
         <Link to="/" className="[&.active]:font-bold">
           Home
         </Link>{" "}
@@ -14,9 +14,8 @@ export const Route = createRootRoute({
         <Link to="/scripture" className="[&.active]:font-bold">
           Scripture
         </Link>
-        
       </div>
-      <hr />
+
       <Outlet />
       <TanStackRouterDevtools />
     </>

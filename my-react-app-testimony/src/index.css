@@ -1,9 +1,14 @@
 @import "tailwindcss";
 
 body {
-  background-image: url(/images/flower2.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 1400px;
+  background-image: url(images/flower3.jpg);
 }
 
+footer {
+  text-align: center;
+  font-size: 15px;
 
+  margin: 90px;
+}
