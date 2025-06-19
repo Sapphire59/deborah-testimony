@@ -2,8 +2,27 @@
 
 body {
   background-repeat: no-repeat;
-  background-size: 1400px;
+  background-size: 3000px;
   background-image: url(images/flower3.jpg);
+}
+
+h1 {
+  font-size: 30px;
+  text-align: center;
+}
+h2 {
+  font-size: 23px;
+  text-align: center;
+}
+h3 {
+  color: black;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: white;
+  border-radius: 8px;
+  margin-left: 8px;
+  padding-left: 8px;
+  border: 1px solid black;
 }
 
 footer {
