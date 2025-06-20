@@ -10,12 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ScriptureRouteImport } from './routes/scripture'
+import { Route as PhotosRouteImport } from './routes/photos'
+import { Route as MusicRouteImport } from './routes/music'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
 const ScriptureRoute = ScriptureRouteImport.update({
   id: '/scripture',
   path: '/scripture',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhotosRoute = PhotosRouteImport.update({
+  id: '/photos',
+  path: '/photos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MusicRoute = MusicRouteImport.update({
+  id: '/music',
+  path: '/music',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -32,30 +44,38 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/music': typeof MusicRoute
+  '/photos': typeof PhotosRoute
   '/scripture': typeof ScriptureRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/music': typeof MusicRoute
+  '/photos': typeof PhotosRoute
   '/scripture': typeof ScriptureRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/music': typeof MusicRoute
+  '/photos': typeof PhotosRoute
   '/scripture': typeof ScriptureRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/scripture'
+  fullPaths: '/' | '/about' | '/music' | '/photos' | '/scripture'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/scripture'
-  id: '__root__' | '/' | '/about' | '/scripture'
+  to: '/' | '/about' | '/music' | '/photos' | '/scripture'
+  id: '__root__' | '/' | '/about' | '/music' | '/photos' | '/scripture'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  MusicRoute: typeof MusicRoute
+  PhotosRoute: typeof PhotosRoute
   ScriptureRoute: typeof ScriptureRoute
 }
 
@@ -66,6 +86,20 @@ declare module '@tanstack/react-router' {
       path: '/scripture'
       fullPath: '/scripture'
       preLoaderRoute: typeof ScriptureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/photos': {
+      id: '/photos'
+      path: '/photos'
+      fullPath: '/photos'
+      preLoaderRoute: typeof PhotosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/music': {
+      id: '/music'
+      path: '/music'
+      fullPath: '/music'
+      preLoaderRoute: typeof MusicRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -88,6 +122,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  MusicRoute: MusicRoute,
+  PhotosRoute: PhotosRoute,
   ScriptureRoute: ScriptureRoute,
 }
 export const routeTree = rootRouteImport
